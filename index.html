@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookMyShow Clone</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+  body { font-family: Roboto, Arial, sans-serif; background:#f2f2f7; }
+  html, .scroll-row { scroll-behavior: smooth; }
+  .scroll-row { scrollbar-width: none; }
+  .scroll-row::-webkit-scrollbar { display: none; }
+  .bebas { font-family: Impact, "Arial Narrow", sans-serif; letter-spacing: .02em; }
+
+  .hero-track { animation: slide 15s ease-in-out infinite; }
+  .hero-track:hover, .hero-track:hover ~ div .dot { animation-play-state: paused; }
+  @keyframes slide {
+    0%, 30% { transform: translateX(0); }
+    33.3%, 63.3% { transform: translateX(-25%); }
+    66.6%, 96.6% { transform: translateX(-50%); }
+    100% { transform: translateX(-75%); }
+  }
+  .dot { opacity: .4; animation: dotpulse 15s infinite; }
+  .dot2 { animation-delay: 5s; } .dot3 { animation-delay: 10s; }
+  @keyframes dotpulse { 0%, 31% { opacity: 1; } 33.3%, 100% { opacity: .4; } }
+  @media (prefers-reduced-motion: reduce) { .hero-track, .dot { animation: none; } }
+</style>
+</head>
+<body class="text-[#333]">
+
+<!-- HEADER -->
+<header class="bg-white">
+  <div class="max-w-[1188px] mx-auto px-4 h-14 flex items-center gap-4">
+    <a href="#" class="text-2xl font-bold tracking-tight text-[#333] shrink-0">book<span class="bg-[#f84464] text-white rounded px-1 mx-px italic">my</span>show</a>
+    <div class="hidden md:flex flex-1 max-w-[540px] items-center border border-gray-300 rounded px-3 h-9 gap-2">
+      <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+      <input class="w-full text-sm outline-none placeholder-gray-400" placeholder="Search for Movies, Events, Plays, Sports and Activities">
+    </div>
+    <div class="ml-auto flex items-center gap-4 text-sm">
+      <button class="flex items-center gap-1">Kochi <svg class="w-3 h-3" viewBox="0 0 20 20" fill="currentColor"><path d="M5 7l5 6 5-6z"/></svg></button>
+      <button class="bg-[#f84464] text-white text-xs px-3 py-1.5 rounded">Sign in</button>
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </div>
+  </div>
+  <nav class="bg-[#f2f2f2] border-b border-gray-200">
+    <div class="max-w-[1188px] mx-auto px-4 h-10 flex items-center justify-between text-[13px] text-[#444]">
+      <ul class="flex gap-5 overflow-x-auto scroll-row">
+        <li><a href="#">Movies</a></li><li><a href="#">Stream</a></li><li><a href="#">Events</a></li><li><a href="#">Plays</a></li><li><a href="#">Sports</a></li><li><a href="#">Activities</a></li>
+      </ul>
+      <ul class="hidden sm:flex gap-5 text-xs">
+        <li><a href="#">ListYourShow</a></li><li><a href="#">Corporates</a></li><li><a href="#">Offers</a></li><li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="overflow-hidden mt-3">
+  <div class="max-w-[1188px] mx-auto px-4 lg:px-0 relative lg:-translate-x-[77px]">
+    <div class="relative h-[200px] md:h-[285px] rounded-lg overflow-hidden group">
+      <div class="hero-track flex h-full w-[400%]">
+        <div class="w-1/4 shrink-0 h-full"><img src="images/hero.jpg" alt="Guns N' Roses" class="w-full h-full object-cover"></div>
+        <div class="w-1/4 shrink-0 h-full bg-gradient-to-r from-[#1a1744] to-[#2a2566] flex items-center justify-around px-6 text-white">
+        <div><div class="text-2xl">book<span class="text-[#f84464]">my</span>show</div><div class="text-5xl md:text-7xl font-black tracking-wide">STREAM</div></div>
+        <div class="text-center"><div class="text-xl md:text-3xl font-semibold">amazon pay</div><div class="text-2xl md:text-5xl font-black mt-2">GET UP TO ₹100*</div>
+        <span class="inline-block mt-4 bg-[#f84464] rounded px-5 py-2 text-sm font-medium">Buy/Rent Online</span><div class="text-[10px] mt-2 text-white/70">*T&amp;Cs Apply</div></div></div>
+        <div class="w-1/4 shrink-0 h-full bg-gradient-to-br from-sky-400 via-sky-600 to-blue-900 flex items-center justify-center text-white text-center px-6">
+        <div><div class="text-3xl md:text-6xl font-black">Now Showing in Kochi</div><div class="text-base md:text-xl mt-3">Book tickets for the latest movies</div></div></div>
+        <div class="w-1/4 shrink-0 h-full"><img aria-hidden="true" src="images/hero.jpg" alt="Guns N' Roses" class="w-full h-full object-cover"></div>
+      </div>
+      <div class="absolute bottom-3 inset-x-0 flex justify-center gap-1.5">
+        <i class="dot dot1 w-2 h-2 rounded-full bg-white"></i><i class="dot dot2 w-2 h-2 rounded-full bg-white"></i><i class="dot dot3 w-2 h-2 rounded-full bg-white"></i>
+      </div>
+    </div>
+    <img src="images/hero0.jpg" alt="" class="hidden lg:block absolute right-full top-0 mr-[9px] w-[125px] h-[285px] rounded-lg">
+    <img src="images/hero2.jpg" alt="" class="hidden lg:block absolute left-full top-0 ml-[10px] w-[268px] h-[285px] rounded-lg">
+  </div>
+</section>
+
+<!-- RECOMMENDED MOVIES -->
+<section class="max-w-[1188px] mx-auto px-4 lg:px-0 mt-10">
+  <div class="flex items-center justify-between mb-3">
+    <h2 class="text-[22px] font-medium">Recommended Movies</h2>
+    <a href="#" class="text-sm text-[#f84464]">See All ›</a>
+  </div>
+  <div class="relative">
+    <div class="flex gap-[31px] overflow-x-auto scroll-row">
+      <a id="movie1" href="#" class="shrink-0 w-[213px]"><img src="images/movie1.jpg" alt="Tum Mere Ho" class="w-[213px] h-[362px] rounded-lg object-cover"><h3 class="mt-2 text-base font-medium">Tum Mere Ho</h3><p class="text-xs text-gray-500">Romantic/Drama</p></a>
+      <a href="#" class="shrink-0 w-[213px]"><img src="images/movie2.jpg" alt="Pehla Pyaar Doosri Baar" class="w-[213px] h-[362px] rounded-lg object-cover"><h3 class="mt-2 text-base font-medium">Pehla Pyaar Doosri Baar</h3><p class="text-xs text-gray-500">Comedy/Romantic</p></a>
+      <a href="#" class="shrink-0 w-[213px]"><img src="images/movie3.jpg" alt="Jailer 2" class="w-[213px] h-[362px] rounded-lg object-cover"><h3 class="mt-2 text-base font-medium">Jailer 2</h3><p class="text-xs text-gray-500">Action/Comedy</p></a>
+      <a href="#" class="shrink-0 w-[213px]"><img src="images/movie4.jpg" alt="Titans" class="w-[213px] h-[362px] rounded-lg object-cover"><h3 class="mt-2 text-base font-medium">Titans</h3><p class="text-xs text-gray-500">Action/Thriller</p></a>
+      <a id="movie5" href="#" class="shrink-0 w-[213px]"><img src="images/movie5.jpg" alt="Udumbanchola Vision" class="w-[213px] h-[362px] rounded-lg object-cover"><h3 class="mt-2 text-base font-medium">Udumbanchola Vision</h3><p class="text-xs text-gray-500">Thriller</p></a>
+    </div>
+    <a href="#movie5" aria-label="Next" class="hidden lg:flex absolute right-[-18px] top-[160px] w-9 h-9 rounded-full bg-[#333]/90 text-white items-center justify-center text-xl">›</a><a href="#movie1" aria-label="Previous" class="hidden lg:flex absolute left-[-18px] top-[160px] w-9 h-9 rounded-full bg-[#333]/90 text-white items-center justify-center text-xl">‹</a>
+  </div>
+</section>
+
+<!-- STREAM BANNER -->
+<section class="max-w-[1188px] mx-auto px-4 lg:px-0 mt-16">
+  <img src="images/stream.jpg" alt="Stream - Endless Entertainment Anytime. Anywhere!" class="w-full rounded-lg">
+</section>
+
+<!-- LIVE EVENTS -->
+<section class="max-w-[1188px] mx-auto px-4 lg:px-0 mt-16">
+  <h2 class="text-[22px] font-medium mb-3">The Best Of Live Events</h2>
+  <div class="relative">
+    <div class="flex gap-[31px] overflow-x-auto scroll-row"><a id="live1" href="#" class="shrink-0"><img src="images/live1.jpg" alt="" class="w-[213px] h-[214px] rounded-lg"></a><a href="#" class="shrink-0"><img src="images/live2.jpg" alt="" class="w-[213px] h-[214px] rounded-lg"></a><a href="#" class="shrink-0"><img src="images/live3.jpg" alt="" class="w-[213px] h-[214px] rounded-lg"></a><a href="#" class="shrink-0"><img src="images/live4.jpg" alt="" class="w-[213px] h-[214px] rounded-lg"></a><a id="live5" href="#" class="shrink-0"><img src="images/live5.jpg" alt="" class="w-[213px] h-[214px] rounded-lg"></a></div>
+    <a href="#live5" aria-label="Next" class="hidden lg:flex absolute right-[-18px] top-[88px] w-9 h-9 rounded-full bg-[#333]/90 text-white items-center justify-center text-xl">›</a><a href="#live1" aria-label="Previous" class="hidden lg:flex absolute left-[-18px] top-[88px] w-9 h-9 rounded-full bg-[#333]/90 text-white items-center justify-center text-xl">‹</a>
+  </div>
+</section>
+
+<!-- PREMIERE -->
+<section class="bg-[#322f4c] mt-14 pt-10 pb-0 overflow-hidden">
+  <div class="max-w-[1188px] mx-auto px-4 lg:px-0">
+    <div class="flex items-center gap-4">
+      <div class="w-14 h-14 rounded-full bg-[#f84464] flex items-center justify-center text-white text-2xl pl-1">▶</div>
+      <div><div class="text-white text-xl font-bold tracking-[.2em]">PREMIERE</div><div class="text-white/90 text-xs">Watch new movies at home, every Friday</div></div>
+    </div>
+    <h2 class="text-white text-xl font-medium mt-10">Premieres</h2>
+    <p class="text-white/90 text-xs mb-3">Brand new releases every Friday</p>
+    <div class="relative">
+      <div class="flex gap-[31px] overflow-x-auto scroll-row"><a id="prem1" href="#" class="shrink-0"><img src="images/prem1.jpg" alt="" class="w-[213px] h-[173px] rounded-t-lg object-cover object-top"></a><a href="#" class="shrink-0"><img src="images/prem2.jpg" alt="" class="w-[213px] h-[173px] rounded-t-lg object-cover object-top"></a><a href="#" class="shrink-0"><img src="images/prem3.jpg" alt="" class="w-[213px] h-[173px] rounded-t-lg object-cover object-top"></a><a href="#" class="shrink-0"><img src="images/prem4.jpg" alt="" class="w-[213px] h-[173px] rounded-t-lg object-cover object-top"></a><a id="prem5" href="#" class="shrink-0"><img src="images/prem5.jpg" alt="" class="w-[213px] h-[173px] rounded-t-lg object-cover object-top"></a></div>
+      <a href="#prem5" aria-label="Next" class="hidden lg:flex absolute right-[-18px] top-[140px] w-9 h-9 rounded-full bg-[#333]/90 text-white items-center justify-center text-xl">›</a><a href="#prem1" aria-label="Previous" class="hidden lg:flex absolute left-[-18px] top-[140px] w-9 h-9 rounded-full bg-[#333]/90 text-white items-center justify-center text-xl">‹</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-[#333] text-[#999]">
+  <div class="max-w-[1188px] mx-auto px-4 pt-6 text-[11px]">
+
+    <h4 class="text-xs text-gray-300 mt-4">CINEMAS IN TOP CITIES</h4>
+    <p class="mt-3 leading-6">Cinemas in Mumbai | Cinemas in Delhi-NCR | Cinemas in Chennai | Cinemas in Bengaluru | Cinemas in Hyderabad | Cinemas in Pune | Cinemas in Ahmedabad | Cinemas in Kolkata | Cinemas in Kochi</p>
+
+    <h4 class="text-xs text-gray-300 mt-6">PLAYS IN TOP CITIES</h4>
+    <p class="mt-3 leading-6">Plays in Mumbai | Plays in Delhi-NCR | Plays in Chennai | Plays in Bengaluru | Plays in Hyderabad | Plays in Pune | Plays in Ahmedabad | Plays in Kolkata | Plays in Kochi</p>
+
+    <h4 class="text-xs text-gray-300 mt-6">ACTIVITIES IN TOP CITIES</h4>
+    <p class="mt-3 leading-6">Activities in Mumbai | Activities in Delhi-NCR | Activities in Chennai | Activities in Bengaluru | Activities in Hyderabad | Activities in Pune | Activities in Ahmedabad | Activities in Kolkata | Activities in Kochi</p>
+
+    <h4 class="text-xs text-gray-300 mt-6">MOVIES NOW SHOWING</h4>
+    <p class="mt-3 leading-6">Namit Malhotra's Ramayana | Udta Teer | Jailer 2 | Premada Oorali | Ranabaali | Pehla Pyaar Doosri Baar | Drishyam The Conclusion | Clayface | 418 | Rajini: The Jailer 2</p>
+
+    <h4 class="text-xs text-gray-300 mt-6">COUNTRIES</h4>
+    <p class="mt-3 leading-6">Indonesia | Singapore | Sri Lanka | West Indies</p>
+
+    <h4 class="text-xs text-gray-300 mt-6">HELP</h4>
+    <p class="mt-3 leading-6">About Us | Contact Us | Current Opening | Press Release | Press Coverage | FAQs | Terms and Conditions | Privacy Policy</p>
+
+    <h4 class="text-xs text-gray-300 mt-6">BOOKMYSHOW EXCLUSIVES</h4>
+    <p class="mt-3 leading-6">Lollapalooza India | BookAChange | Corporate Vouchers | Gift Cards | List My Show | Offers | Stream | Trailers</p>
+
+    <div class="flex items-center gap-4 mt-12">
+      <div class="flex-1 h-px bg-gray-600"></div>
+      <div class="text-xl font-bold text-white">book<span class="bg-[#f84464] rounded px-1 mx-px italic">my</span>show</div>
+      <div class="flex-1 h-px bg-gray-600"></div>
+    </div>
+
+    <div class="flex justify-center gap-4 mt-12">
+      <span class="w-9 h-9 rounded-full bg-[#666] text-[#333] font-bold flex items-center justify-center">f</span>
+      <span class="w-9 h-9 rounded-full bg-[#666] text-[#333] font-bold flex items-center justify-center">X</span>
+      <span class="w-9 h-9 rounded-full bg-[#666] text-[#333] font-bold flex items-center justify-center">◎</span>
+      <span class="w-9 h-9 rounded-full bg-[#666] text-[#333] font-bold flex items-center justify-center">▶</span>
+      <span class="w-9 h-9 rounded-full bg-[#666] text-[#333] font-bold flex items-center justify-center">P</span>
+      <span class="w-9 h-9 rounded-full bg-[#666] text-[#333] font-bold flex items-center justify-center">in</span>
+    </div>
+
+    <div class="text-center text-[11px] text-gray-500 mt-10 pb-10 leading-5">
+      Copyright 2026 ©Bigtree Entertainment Pvt. Ltd.All Rights Reserved.<br>
+      The content and images used on this site are copyright protected and copyrights vests with the respective owners. The usage of the content and images on this website is intended to promote the works and no endorsement of the artist shall be implied. Unauthorized use is prohibited and punishable by law.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
